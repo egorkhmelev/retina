@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Adaptation for Retina screens demo</title>
+  <title>Adaptation for Retina display</title>
   <meta name="description" content="">
   <meta name="author" content="Egor Khmelev">
 
@@ -13,6 +13,7 @@
   <!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" href="plugins/google-code-prettify/prettify.css" type="text/css" charset="utf-8">
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="css/main.css" type="text/css" charset="utf-8">
   <!-- end CSS-->
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -37,10 +38,68 @@
   <div class="container">
 
     <div class="page-header">
-      <h1>Adaptation for Retina screens <small><a href="http://github.com/egorkhmelev/retina">View project on GitHub</a></small></h1>
+      <h1>Adaptation for Retina display <small><a href="http://github.com/egorkhmelev/retina">View project on GitHub</a></small></h1>
     </div>
     
     <br/>
+    <h2>SVG method</h2>
+    <br/>
+    
+    <div class="row svg">
+      <div class="span4">
+        <div class="logo">
+          <div class="default"></div>
+          <div class="clear"></div>
+          <i></i>
+        </div>
+      </div>
+      <div class="span8">123</div>
+    </div>
+
+    <br/><br/>
+    <h2>CSS Media Query and background-size method</h2>
+    <br/>
+
+    <div class="row cmq">
+      <div class="span4">
+        <div class="logo">
+          <div class="default"></div>
+          <div class="clear"></div>
+          <i></i>
+        </div>
+      </div>
+      <div class="span8">123</div>
+    </div>
+
+    <br/><br/>
+    <h2>Javascript &lt;img/&gt; source replacing method</h2>
+    <br/>
+
+    <div class="row img">
+      <div class="span4">
+        <div class="logo">
+          <div class="default"></div>
+          <div class="clear"><img src="img/apple.png" width="200" height="200" /></div>
+          <i></i>
+        </div>
+      </div>
+      <div class="span8">123</div>
+    </div>
+
+    <br/><br/>
+    <h2>Server-side method with cookies</h2>
+    <br/>
+
+    <div class="row img">
+      <div class="span4">
+        <div class="logo">
+          <div class="default"></div>
+          <div class="clear"><img src="img/apple@2x.png" width="200" height="200" /></div>
+          <i></i>
+        </div>
+      </div>
+      <div class="span8">123</div>
+    </div>
 
     <p><center><a style="width: 180px;" class="btn btn-info btn-large" href="http://github.com/egorkhmelev/retina">View project on GitHub</a> <a style="width: 180px;" class="btn btn-large" href="https://github.com/egorkhmelev/retina/zipball/master">Download sources</a></center></h1>
 

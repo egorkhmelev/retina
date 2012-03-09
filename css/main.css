@@ -1,0 +1,14 @@
+
+  .logo { width: 200px; height: 200px; margin: 0 auto; position: relative; }
+  .logo .clear { width: 100px; height: 200px; float: left; }
+  .logo .default { width: 100px; height: 200px; float: left; background: url(../img/apple.png) no-repeat left 0; }
+  .logo i { position: absolute; left: 100px; top: 0; width: 1px; height: 200px; background: black; background: rgba(0,0,0,0.5); }
+  
+  .svg .logo .clear { background: url(../img/apple.svg) no-repeat right 0; }
+  .cmq .logo .clear { background: url(../img/apple.png) no-repeat right 0; }
+  .img .logo .clear { position: relative; overflow: hidden; }
+  .img .logo .clear img { position: absolute; right: 0; }
+  
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    .cmq .logo .clear { background-size: contain; background-image: url(../img/apple@2x.png); }
+  }
