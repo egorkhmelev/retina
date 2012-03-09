@@ -3,6 +3,9 @@
   .logo .clear { width: 100px; height: 200px; float: left; }
   .logo .default { width: 100px; height: 200px; float: left; background: url(../img/apple.png) no-repeat left 0; }
   .logo i { position: absolute; left: 100px; top: 0; width: 1px; height: 200px; background: black; background: rgba(0,0,0,0.5); }
+  .logo span { font-family: monospace; font-size: 11px; position: absolute; top: -25px; color: gray; }
+  .logo span.bad { right: 105px; }
+  .logo span.good { left: 105px; }
   
   .svg .logo .clear { background: url(../img/apple.svg) no-repeat right 0; }
   .cmq .logo .clear { background: url(../img/apple.png) no-repeat right 0; }

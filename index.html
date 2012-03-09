@@ -19,14 +19,13 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="plugins/google-code-prettify/prettify.js"></script>
   <script type="text/javascript" charset="utf-8">
-    jQuery(document).ready(function retina_init() {
-      var RETINA_REPLACE_SELECTOR = 'img.replace-2x';
-      
+    jQuery( document ).ready(function(){
       if( 'devicePixelRatio' in window && window.devicePixelRatio == 2 ){
-        var img_to_replace = jQuery( RETINA_REPLACE_SELECTOR ).get();
-        for (var i=0; i < img_to_replace.length; i++) {
+        var img_to_replace = jQuery( 'img.replace-2x' ).get();
+
+        for (var i=0,l=img_to_replace.length; i<l; i++) {
           var src = img_to_replace[i].src;
-          src = src.replace(/\.(png|jpg|gif)+$/i, "@2x.$1");
+          src = src.replace(/\.(png|jpg|gif)+$/i, '@2x.$1');
           img_to_replace[i].src = src;
         };
       }
@@ -61,11 +60,12 @@
     
     <br/>
     <h2>SVG method</h2>
-    <br/>
+    <br/><br/>
     
     <div class="row svg">
       <div class="span4">
         <div class="logo">
+          <span class="bad">bad</span><span class="good">good</span>
           <div class="default"></div>
           <div class="clear"></div>
           <i></i>
@@ -77,7 +77,7 @@
 .oldie .selector { background-image: url(../path_to_png/apple.png); }
 </pre>
         <div class="alert alert-block">
-          <strong>As simple as set background image.</strong> However developers should provide graceful degradation for Internet Explorer with version 8 and below, because IE does not <a target="_blank" href="http://caniuse.com/#feat=svg-css">support CSS SVG</a>.
+          <strong>As simple as set background image.</strong> However developers should provide graceful degradation for Internet Explorer with version 8 and below, because IE does not <a target="_blank" href="http://caniuse.com/#feat=svg-css">support SVG in CSS</a>.
         </div>
       </div>
     </div>
@@ -122,18 +122,22 @@
       </div>
       <div class="span8">
 <pre class="prettyprint linenums">
-jQuery(document).ready(function retina_init() {
-  var RETINA_REPLACE_SELECTOR = 'img.replace-2x';
-  
+jQuery( document ).ready(function(){
   if( 'devicePixelRatio' in window &amp;&amp; window.devicePixelRatio == 2 ){
-    var img_to_replace = jQuery( RETINA_REPLACE_SELECTOR ).get();
-    for (var i=0; i &lt; img_to_replace.length; i++) {
+    var img_to_replace = jQuery( 'img.replace-2x' ).get();
+
+    for (var i=0,l=img_to_replace.length; i&lt;l; i++) {
       var src = img_to_replace[i].src;
       src = src.replace(/\.(png|jpg|gif)+$/i, '@2x.$1');
       img_to_replace[i].src = src;
     };
   }
 });
+
+// On your HTML code (must provide width or height)
+&lt;img src="../path_to_png/apple.png"
+     width="200" height="200"
+     class="replace-2x" /&gt;
 </pre>
         <p>Based on <a href="http://flowz.com/2010/07/css-image-replacement-for-iphone-4-high-dpi-retina-display/">CSS Image Replacement for iPhone 4 High-DPI Retina</a> blogpost.</p>
       </div>
@@ -154,13 +158,11 @@ jQuery(document).ready(function retina_init() {
       <div class="span8">
 <pre class="prettyprint linenums">
 (function(){
-  the_cookie = document.cookie;
-  if( the_cookie.indexOf('device_pixel_ratio') == -1
+  if( document.cookie.indexOf('device_pixel_ratio') == -1
       &amp;&amp; 'devicePixelRatio' in window
       &amp;&amp; window.devicePixelRatio == 2 ){
         
-    the_cookie = 'device_pixel_ratio=' + window.devicePixelRatio + ';';
-    document.cookie = the_cookie;
+    document.cookie = 'device_pixel_ratio=' + window.devicePixelRatio + ';';
     window.location.reload();
   }
 })();
