@@ -18,6 +18,20 @@
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="plugins/google-code-prettify/prettify.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    jQuery(document).ready(function retina_init() {
+      var RETINA_REPLACE_SELECTOR = 'img.replace-2x';
+      
+      if( 'devicePixelRatio' in window and window.devicePixelRatio == 2 ){
+        var img_to_replace = jQuery( RETINA_REPLACE_SELECTOR ).get();
+        for (var i=0; i < img_to_replace.length; i++) {
+          var src = img_to_replace[i].src;
+          src = src.replace(/\.(png|jpg|gif)+$/, "@2x.$1");
+          img_to_replace[i].src = src;
+        };
+      }
+    });
+  </script>
 
   <!-- <script type="text/javascript">
 
@@ -79,7 +93,7 @@
       <div class="span4">
         <div class="logo">
           <div class="default"></div>
-          <div class="clear"><img src="img/apple.png" width="200" height="200" /></div>
+          <div class="clear"><img class="replace-2x" src="img/apple.png" width="200" height="200" /></div>
           <i></i>
         </div>
       </div>
