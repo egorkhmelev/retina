@@ -10,5 +10,5 @@
   .img .logo .clear img { position: absolute; right: 0; }
   
   @media (-webkit-min-device-pixel-ratio: 2) {
-    .cmq .logo .clear { background-size: contain; background-image: url(../img/apple@2x.png); }
+    .cmq .logo .clear { background-size: cover; background-image: url(../img/apple@2x.png); }
   }
