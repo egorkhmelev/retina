@@ -31,6 +31,10 @@
         };
       }
     });
+    
+    jQuery(document).ready(function(){
+      window.prettyPrint && prettyPrint();
+    });    
   </script>
 
   <!-- <script type="text/javascript">
@@ -67,10 +71,18 @@
           <i></i>
         </div>
       </div>
-      <div class="span8">123</div>
+      <div class="span8">
+<pre class="prettyprint linenums">
+.selector { background: url(../path_to_svg/apple.svg) no-repeat; }
+.oldie .selector { background-image: url(../path_to_png/apple.png); }
+</pre>
+        <div class="alert alert-block">
+          <strong>As simple as set background image.</strong> However developers should provide graceful degradation for Internet Explorer with version 8 and below, because IE does not <a target="_blank" href="http://caniuse.com/#feat=svg-css">support CSS SVG</a>.
+        </div>
+      </div>
     </div>
 
-    <br/><br/>
+    <br/><br/><br/>
     <h2>CSS Media Query and background-size method</h2>
     <br/>
 
@@ -82,10 +94,21 @@
           <i></i>
         </div>
       </div>
-      <div class="span8">123</div>
+      <div class="span8">
+<pre class="prettyprint linenums">
+.selector { background: url(../path_to_png/apple.png) no-repeat; }
+  
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .selector { background-image: url(../path_to_png/apple@2x.png); background-size: cover; }
+}  
+</pre>
+        <p>
+          Read about <a href="https://developer.mozilla.org/en/CSS/background-size">background-size options and behavior</a>.
+        </p>
+      </div>
     </div>
 
-    <br/><br/>
+    <br/><br/><br/>
     <h2>Javascript &lt;img/&gt; source replacing method</h2>
     <br/>
 
@@ -97,10 +120,26 @@
           <i></i>
         </div>
       </div>
-      <div class="span8">123</div>
+      <div class="span8">
+<pre class="prettyprint linenums">
+jQuery(document).ready(function retina_init() {
+  var RETINA_REPLACE_SELECTOR = 'img.replace-2x';
+  
+  if( 'devicePixelRatio' in window &amp;&amp; window.devicePixelRatio == 2 ){
+    var img_to_replace = jQuery( RETINA_REPLACE_SELECTOR ).get();
+    for (var i=0; i &lt; img_to_replace.length; i++) {
+      var src = img_to_replace[i].src;
+      src = src.replace(/\.(png|jpg|gif)+$/i, '@2x.$1');
+      img_to_replace[i].src = src;
+    };
+  }
+});
+</pre>
+        <p>Based on <a href="http://flowz.com/2010/07/css-image-replacement-for-iphone-4-high-dpi-retina-display/">CSS Image Replacement for iPhone 4 High-DPI Retina</a> blogpost.</p>
+      </div>
     </div>
 
-    <br/><br/>
+    <br/><br/><br/>
     <h2>Server-side method with cookies</h2>
     <br/>
 
@@ -112,10 +151,32 @@
           <i></i>
         </div>
       </div>
-      <div class="span8">123</div>
-    </div>
+      <div class="span8">
+<pre class="prettyprint linenums">
+(function(){
+  the_cookie = document.cookie;
+  if( the_cookie.indexOf('device_pixel_ratio') == -1
+      &amp;&amp; 'devicePixelRatio' in window
+      &amp;&amp; window.devicePixelRatio == 2 ){
+        
+    the_cookie = 'device_pixel_ratio=' + window.devicePixelRatio + ';';
+    document.cookie = the_cookie;
+    window.location.reload();
+  }
+})();
 
-    <p><center><a style="width: 180px;" class="btn btn-info btn-large" href="http://github.com/egorkhmelev/retina">View project on GitHub</a> <a style="width: 180px;" class="btn btn-large" href="https://github.com/egorkhmelev/retina/zipball/master">Download sources</a></center></h1>
+// The cookie 'device_pixel_ratio' will be available at server-side
+</pre>
+        <p>Based on <a href="http://www.bdoran.co.uk/2010/07/19/detecting-the-iphone4-and-resolution-with-javascript-or-php/">Detecting the iPhone4 and Resolution with Javascript or PHP</a> blogpost.</p>
+      </div>
+    </div>
+    
+    <br/><br/>
+
+    <p class="sources">
+      <a class="btn btn-info btn-large" href="http://github.com/egorkhmelev/retina">View project on GitHub</a>
+      <a class="btn btn-large" href="https://github.com/egorkhmelev/retina/zipball/master">Download sources</a>
+    </p>
 
     <br/><br/>
 

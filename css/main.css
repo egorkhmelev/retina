@@ -12,3 +12,11 @@
   @media (-webkit-min-device-pixel-ratio: 2) {
     .cmq .logo .clear { background-size: cover; background-image: url(../img/apple@2x.png); }
   }
+  
+  .sources { text-align: center; }
+  .sources .btn { width: 180px; }
+
+  @media (max-width:480px){
+    .sources .btn { display: block; margin: 0 auto 10px; }
+    .page-header h1 small { margin-top: 0.6em; }
+  }
