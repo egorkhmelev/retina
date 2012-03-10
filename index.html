@@ -73,11 +73,12 @@
       </div>
       <div class="span8">
 <pre class="prettyprint linenums">
-.selector { background: url(../path_to_svg/apple.svg) no-repeat; }
-.oldie .selector { background-image: url(../path_to_png/apple.png); }
+.selector { background: url(../path_to_png/apple.png) no-repeat; }
+html.svg .selector { background-image: url(../path_to_svg/apple.svg); }
 </pre>
-        <div class="alert alert-block">
-          <strong>As simple as set background image.</strong> However developers should provide graceful degradation for Internet Explorer with version 8 and below, because IE does not <a target="_blank" href="http://caniuse.com/#feat=svg-css">support SVG in CSS</a>.
+        <div class="row">
+          <div class="span6">
+            <p><strong>As&nbsp;simple as&nbsp;set background image.</strong> However developers should provide graceful degradation for browsers that does not <a target="_blank" href="http://caniuse.com/#feat=svg-css">support SVG in&nbsp;CSS</a>. I&nbsp;recommend to&nbsp;use feature detection method (<a href="http://www.modernizr.com/">Modernizr</a>) as&nbsp;part of&nbsp;<a href="http://html5boilerplate.com/">HTML5&nbsp;Boilerplate</a>.</p>          </div>
         </div>
       </div>
     </div>
@@ -102,9 +103,7 @@
   .selector { background-image: url(../path_to_png/apple@2x.png); background-size: cover; }
 }  
 </pre>
-        <p>
-          Read about <a href="https://developer.mozilla.org/en/CSS/background-size">background-size options and behavior</a>.
-        </p>
+        <p>Read about <a href="https://developer.mozilla.org/en/CSS/background-size">background-size options and behavior</a>.</p>
       </div>
     </div>
 
@@ -169,7 +168,7 @@ jQuery( document ).ready(function(){
 
 // The cookie 'device_pixel_ratio' will be available at server-side
 </pre>
-        <p>Based on <a href="http://www.bdoran.co.uk/2010/07/19/detecting-the-iphone4-and-resolution-with-javascript-or-php/">Detecting the iPhone4 and Resolution with Javascript or PHP</a> blogpost.</p>
+        <p>Based on&nbsp;<a href="http://www.bdoran.co.uk/2010/07/19/detecting-the-iphone4-and-resolution-with-javascript-or-php/">Detecting the iPhone4 and Resolution with Javascript or&nbsp;PHP</a> blogpost.</p>
       </div>
     </div>
     
